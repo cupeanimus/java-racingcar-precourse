@@ -3,22 +3,18 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RoundTest {
 
-    @DisplayName("1~9 사이 숫자 생성 검증")
+    @DisplayName("4~9 일때 여부 체크")
     @Test
-    void create_roundNumTest(){
-//        for (int i = 0; i < 1000; i++) {
-            RandomNumber one = new RandomNumber();
-            System.out.println(one.getValue());
-            assertTrue(one.getValue() >= 0 && one.getValue() <= 9);
-//        }
+    void isMoveTest(){
+        assertFalse(new IsMovable(3).isMovable());
+        assertTrue(new IsMovable(4).isMovable());
+        assertTrue(new IsMovable(9).isMovable());
+        assertFalse(new IsMovable(10).isMovable());
     }
-
-
-
 
 }
