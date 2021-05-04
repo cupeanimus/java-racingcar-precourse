@@ -1,20 +1,14 @@
 package racingcar.domain;
 
-import java.util.Random;
-
 public class IsMovable {
 
     boolean movable;
 
     public IsMovable(int randomValue) {
-        this.movable = checkRange(randomValue);
+        this.movable = check(randomValue);
     }
 
-    public IsMovable() {
-        this((int) (Math.random()*9));
-    }
-
-    private boolean checkRange(int randomValue) {
+    public static boolean check(int randomValue) {
         return randomValue >= 4 && randomValue <= 9;
     }
 
