@@ -11,6 +11,7 @@ public class Racing {
     }
 
     public static Racing setUp(List<String> names) {
+        System.out.println("\n실행 결과");
         checkDuplicated(names);
         List<Car> createdCars = new ArrayList<>();
         for (String name : names) {
