@@ -9,24 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RoundTest {
 
-    @DisplayName("횟수 이동 증가 결과 체크")
-    @Test
-    void RoundTest(){
-        Round zero = new Round();
-        assertThat(zero.getMovedTotal().getValue()).isEqualTo(0);
-
-        Round one = zero.next(4);
-        assertThat(one.getMovedTotal().getValue()).isEqualTo(1);
-
-        Round two = one.next(3);
-        assertThat(two.getMovedTotal().getValue()).isEqualTo(1);
-    }
 
     @DisplayName("움직인 횟수 증가 체크")
     @Test
     void movedTotalPlusTest(){
         //given
-        MovedTotal movedTotal = new MovedTotal();
+        MovedTotal movedTotal = new MovedTotal(0);
         assertThat(movedTotal.getValue()).isEqualTo(0);
 
         //when

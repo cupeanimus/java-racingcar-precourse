@@ -7,10 +7,6 @@ public class MovedTotal {
         this.value = value;
     }
 
-    public MovedTotal() {
-        this.value = 0;
-    }
-
     public MovedTotal add(){
         return new MovedTotal(this.value + 1);
     }
