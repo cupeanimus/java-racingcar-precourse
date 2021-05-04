@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
@@ -37,10 +38,24 @@ public class RacingTest {
         for (int i = 0; i < round; i++) {
             racing.next();
         }
-        
         assertThat(racing.getCars().getCars().get(0).getRound().getValue()).isEqualTo(5);
 
     }
+
+    @DisplayName("결과 출력")
+    @Test
+    void printRacingWinnerTest(){
+        List<Car> cars = Arrays.asList(
+                new Car("pobi",5,5)
+                , new Car("crong",4,5)
+                , new Car("honux",5,5));
+
+        Racing racing = new Racing(new Cars(cars));
+        racing.printWinner();
+
+    }
+
+
 
     //해당 메서드를 어떻게 검증해야할지 잘 모르겠음
 //    @DisplayName("다음 횟수 진행")

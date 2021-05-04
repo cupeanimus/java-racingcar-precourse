@@ -1,9 +1,6 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Racing {
 
@@ -39,6 +36,20 @@ public class Racing {
             car.printResult();
         }
         System.out.println();
+    }
+
+    public void printWinner() {
+        cars.setWinners();
+        List<String> winners = getWinners();
+        System.out.println(Arrays.toString(winners.toArray()).replaceAll("\\[|\\]","") +"가 최종 우승했습니다.");
+    }
+
+    public void setWinners(){
+        cars.setWinners();
+    }
+
+    public List<String> getWinners(){
+        return cars.getWinners();
     }
 
 }

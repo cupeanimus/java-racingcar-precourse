@@ -4,11 +4,18 @@ public class Car {
     private Name name;
     private MovedTotal movedTotal;
     private Round round;
+    private boolean isWinner;
 
     public Car(String name) {
         this.name = new Name(name);
         this.movedTotal = new MovedTotal(0);
         this.round = new Round(0);
+    }
+
+    public Car(String name, int movedTotal, int round) {
+        this.name = new Name(name);
+        this.movedTotal = new MovedTotal(movedTotal);
+        this.round = new Round(round);
     }
 
     public Name getName() {
@@ -21,6 +28,20 @@ public class Car {
 
     public Round getRound() {
         return round;
+    }
+
+    private String getResult() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(name.getValue());
+        buffer.append(" : ");
+        for (int i = 0; i < movedTotal.getValue(); i++) {
+            buffer.append("-");
+        }
+        return buffer.toString();
+    }
+
+    public boolean isWinner() {
+        return isWinner;
     }
 
     public void nextRound() {
@@ -39,13 +60,11 @@ public class Car {
         System.out.println(getResult());
     }
 
-    private String getResult() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(name.getValue());
-        buffer.append(" : ");
-        for (int i = 0; i < movedTotal.getValue(); i++) {
-            buffer.append("-");
-        }
-        return buffer.toString();
+    public void checkWinner(int max) {
+        this.isWinner = movedTotal.getValue() == max ? true : false;
     }
+
+
+
+
 }
