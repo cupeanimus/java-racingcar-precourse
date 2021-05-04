@@ -1,10 +1,11 @@
 package racingcar.domain;
 
+import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 public class CarTest {
     private Car car;
@@ -19,6 +20,9 @@ public class CarTest {
     void createCarTest(){
 
         assertThat(car.getName().getValue()).isEqualTo("pobi");
+
+        //6자 이상 이름일때 예외 발생
+        assertThatIllegalArgumentException().isThrownBy(() -> new Car("abcedf"));
     }
 
     @DisplayName("다음 라운드 적용")
