@@ -34,4 +34,18 @@ public class Car {
         int num = (int) (Math.random()*9);
         return num >= 4 && num <= 9;
     }
+
+    public void printResult() {
+        System.out.println(getResult());
+    }
+
+    private String getResult() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(name.getValue());
+        buffer.append(" : ");
+        for (int i = 0; i < movedTotal.getValue(); i++) {
+            buffer.append("-");
+        }
+        return buffer.toString();
+    }
 }
