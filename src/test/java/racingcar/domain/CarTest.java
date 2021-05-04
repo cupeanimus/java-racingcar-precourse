@@ -21,9 +21,9 @@ public class CarTest {
         assertThat(car.getName().getValue()).isEqualTo("pobi");
     }
 
-    @DisplayName("이동거리 출력")
+    @DisplayName("다음 라운드 적용")
     @Test
-    void print(){
+    void carNextRoundTest(){
         assertThat(car.getRound().getValue()).isEqualTo(0);
         assertThat(car.getMovedTotal().getValue()).isEqualTo(0);
         assertThat(car.getName().getValue()).isEqualTo("pobi");
